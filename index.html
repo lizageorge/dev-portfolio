@@ -3,10 +3,12 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio</title>
+        <title>Liza George</title>
         <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet" />
         <link href="./assets/css/style.css" rel="stylesheet" />
+        <!-- TODO: search engine optimizations -->
+        <!-- TODO:make new image on figma -->
     </head>
     <body>
         <!-- Header starts here -->
@@ -14,7 +16,8 @@
             <header class="mx-auto container px-4 xl:px-0">
                 <div class="flex items-center justify-between">
                     <a href="javascript: void(0)"> 
-                        <img loading="lazy" class="w-24" src="./assets/images/logo.png"/>
+                        <img loading="lazy" class="w-24" src="./assets/images/logo.png"/> 
+                        <!-- TODO:make new image on figma -->
                     <div>
                         <div onclick="toggleMenu(true)" class="sm:block md:hidden lg:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -35,6 +38,7 @@
                             <ul class="flex md:flex text-3xl md:text-base lg:text-base lg:flex flex-col md:flex-row lg:flex-row justify-center items-center fixed md:relative lg:relative top-0 bottom-0 left-0 right-0 bg-white z-20">
                                 <li class="md:mr-8 lg:mr-10 flex items-center">
                                     <a class="text-gray-800 hover:text-gray-600 pt-10 md:pt-0" href="javascript: void(0)">About</a>
+                                    <!-- TODO: link these header tabs  -->
                                 </li>
                                 <li class="md:mr-8 lg:mr-10 flex items-center">
                                     <a class="text-gray-800 hover:text-gray-600 pt-10 md:pt-0" href="javascript: void(0)">Portfolio</a>
@@ -49,19 +53,22 @@
                                 <li class="md:mr-0 flex items-center">
                                     <a class="text-gray-800 hover:text-gray-600 pt-10 md:pt-0" href="javascript: void(0)">Contact</a>
                                 </li>
+                                <!-- TODO: add download resume button -->
                             </ul>
                         </div>
                     </div>
                 </div>
             </header>
-            <section class="mt-8 sm:mt-24 lg:mt-56 mx-auto container py-12 lg:px-4 xl:px-0 mx-auto container ">
+            <section class="mt-8 sm:mt-24 lg:mt-48 mx-auto container py-12 lg:px-4 xl:px-0 mx-auto container ">
                 <div class="flex flex-col sm:flex-col md:flex-row lg:flex-row">
                     <div class="flex flex-col lg:w-6/12 md:w-6/12 px-4 lg:px-0 justify-center items-start">
-                        <p class="text-2xl text-gray-800 font-light">Hi! I’am <span class="custom-foreground-color">Liza</span> and</p>
-                        <h1 class="text-5xl sm:text-6xl md:text-4xl lg:text-6xl font-extrabold leading-tight text-gray-800">I’ll Help You Build Your Dream</h1>
-                        <p class="text-lg text-gray-600 font-light leading-relaxed pt-8">In quo quaerimus, non provident, similique sunt in voluptate et inter argumentum conclusionemque. Tum dicere exorsus est et quasi architecto beatae vitae dicta sunt, explicabo nemo. Certe inquam, pertinax non emolumento</p>
+                        <p class="text-2xl text-gray-800 font-light">Hi! My name is</p>
+                        <h1 class="text-5xl sm:text-6xl md:text-4xl lg:text-6xl font-extrabold leading-tight text-gray-800">Liza George</h1>
+                        <p class="text-lg text-gray-600 font-light leading-relaxed pt-8">[TODO] In quo quaerimus, non provident, similique sunt in voluptate et inter argumentum conclusionemque. Tum dicere exorsus est et quasi architecto beatae vitae dicta sunt, explicabo nemo. Certe inquam, pertinax non emolumento</p>
                         <button class="Sf-ui-pro mt-10 flex items-center text-xl custom-foreground-color font-regular custom-border-bottom pb-2 mr-3 focus:outline-none">
                             Connect with me
+                            <!-- TODO: link to a mailto?  -->
+                            <!-- TODO: add icons to socials  -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="5" y1="12" x2="19" y2="12" />
@@ -81,58 +88,60 @@
         <!-- Header ends here -->
 
         <!-- Navigator starts here -->
-        <div class="w-full flex justify-center elements-center pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-24 text-gray-800">
+        <!-- TODO: fix -->
+        <!-- <div class="w-full flex justify-center elements-center pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-24 text-gray-800">
             <svg id="goDown" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon icon-tabler icon-tabler-chevrons-down" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <polyline points="7 7 12 12 17 7" />
                 <polyline points="7 13 12 18 17 13" />
             </svg>
-        </div>
+        </div>  -->
         <!-- Navigator ends here -->
 
         <!-- Projects showcase starts here -->
         <section class="px-2 md:px-20">
+            <!-- TODO: lines (highlihgt color) on either side of header? -->
+            <h2 class="text-gray-800 text-3xl sm:text-4xl text-center pb-4 mb-3 leading-normal tracking-normal font-bold">My experiences</h2>
+            <!-- TODO: mobile - include images? maybe just v small (basically logo) image + header and date. -->
             <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="w-full sm:w-1/2 relative h-64 sm:h-auto">
+                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
                     <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_1.png" alt="decorative image" />
                 </div>
-                <div class="container mx-auto w-full sm:w-1/2 py-8 sm:py-16 lg:py-32 px-6 sm:px-12 lg:px-24 bg-gray-100">
+                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
                     <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Mobile App Revamp</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal mb-6">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
-                    <button class="focus:outline-none rounded py-3 px-4 text-black border border-black flex justify-center items-center text-base hover:bg-gray-200 bg-transparent">View Product</button>
-                </div>
-            </div>
-            <div class="flex flex-col sm:flex-row-reverse items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="w-full sm:w-1/2 relative h-64 sm:h-auto">
-                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_2.png" alt="decorative image" />
-                </div>
-                <div class="w-full sm:w-1/2 py-8 sm:py-16 lg:py-32 px-6 sm:px-12 lg:px-24 bg-gray-100">
-                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Education Portal</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal mb-6">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
-                    <button class="focus:outline-none rounded py-3 px-4 text-gray-600 border border-gray-600 flex justify-center items-center text-base hover:bg-gray-200 bg-transparent">View Product</button>
+                    <p class="text-gray-600 leading-6 font-normal tracking-normal">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="w-full sm:w-1/2 relative h-64 sm:h-auto">
-                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_3.png" alt="decorative image" />
+                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
+                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Mobile App Revamp</h3>
+                    <p class="text-gray-600 leading-6 font-normal tracking-normal">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
                 </div>
-                <div class="w-full sm:w-1/2 py-8 sm:py-16 lg:py-32 px-6 sm:px-12 lg:px-24 bg-gray-100">
-                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Management Webapp</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal mb-6">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
-                    <button class="focus:outline-none rounded py-3 px-4 text-gray-600 border border-gray-600 flex justify-center items-center text-base hover:bg-gray-200 bg-transparent">View Product</button>
-                </div>
-            </div>
-            <div class="flex flex-col sm:flex-row-reverse items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="w-full sm:w-1/2 relative h-64 sm:h-auto">
-                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_4.png" alt="decorative image" />
-                </div>
-                <div class="w-full sm:w-1/2 py-8 sm:py-16 lg:py-32 px-6 sm:px-12 lg:px-24 bg-gray-100">
-                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">The 6th Company Branding</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal mb-6">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
-                    <button class="focus:outline-none rounded py-3 px-4 text-gray-600 border border-gray-600 flex justify-center items-center text-base hover:bg-gray-200 bg-transparent">View Product</button>
+                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
+                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_1.png" alt="decorative image" />
                 </div>
             </div>
-            <div class="mb-16 sm:mb-32 container mx-auto px-6 container mx-auto">
+            <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
+                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
+                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_1.png" alt="decorative image" />
+                </div>
+                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
+                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Mobile App Revamp</h3>
+                    <p class="text-gray-600 leading-6 font-normal tracking-normal">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
+                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
+                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Mobile App Revamp</h3>
+                    <p class="text-gray-600 leading-6 font-normal tracking-normal">Quae fuerit causa, nollem me tamen laudandis maioribus meis corrupisti nec segniorem ad. Sunt autem quibusdam et harum quidem se oratio, tua praesertim, qui haec subtilius.</p>
+                </div>
+                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
+                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/section1_1.png" alt="decorative image" />
+                </div>
+            </div>
+
+            <!-- TODO: show fewer experiences on smaller screen and view all experiences should link to a page with all of them -->
+            <!-- <div class="mb-16 sm:mb-32 container mx-auto px-6 container mx-auto">
                 <button class="Sf-ui-pro  focus:outline-none flex items-center text-xl custom-foreground-color font-regular custom-border-bottom pb-2 mr-3">
                     View all projects
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -142,11 +151,12 @@
                         <line x1="15" y1="8" x2="19" y2="12" />
                     </svg>
                 </button>
-            </div>
+            </div> -->
         </section>
 
         <!-- Projects showcase ends here -->
 
+        <!-- TODO: change to projects -->
         <!-- Blog posts start here -->
         <section id="products" class="px-2 md:px-0 bg-gray-800">
             <div class="container mx-auto pt-16 px-6 xl:px-0">
@@ -168,6 +178,7 @@
                         <div class="px-10 sm:px-20 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
                             <h4 class="text-gray-800 text-lg text-center mb-2">Flat Icons Kit</h4>
                             <p class="text-gray-600 text-lg text-center mb-2">PS - Sketch - XD</p>
+                            <!-- TODO: more details link -->
                         </div>
                     </div>
                     <div class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
@@ -193,6 +204,7 @@
         </section>
         <!-- Blog posts end here -->
 
+        <!-- TODO: change logos here <lg> -->
         <!-- Cloud logo starts here -->
         <div class="py-16 px-0 md:px-15 bg-gray-100 flex flex-wrap rounded items-center">
             <div class="w-1/3 sm:w-1/6 flex justify-center items-center">
@@ -216,6 +228,7 @@
         </div>
         <!-- Cloud logo ends here -->
 
+        <!-- TODO: change to series of links and info -->
         <!-- Cotact section starts here -->
         <div class="px-0 md:px-20 xl:px-40 mt-16 sm:mt-32 mb-10 sm:mb-20">
             <div class="lg:flex">
@@ -296,18 +309,20 @@
             <div class="container mx-auto py-12">
                 <div class="xl:flex flex-wrap justify-between">
                     <div class="w-11/12 xl:w-1/3 mx-auto lg:mx-0 xl:mx-0 mb-6 xl:mb-0">
-                        <p class="text-gray-800 text-base">2020. All Rights Reserved</p>
+                        <!-- TODO: check this -->
+                        <p class="text-gray-800 text-base">2022. All Rights Reserved</p>
                     </div>
-                    <div class="w-11/12 xl:w-1/3 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0">
+                    <!-- <div class="w-11/12 xl:w-1/3 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0">
                         <ul class="xl:flex lg:flex md:flex sm:flex justify-between">
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Terms of service</a></li>
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Privacy Policy</a></li>
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Security</a></li>
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Sitemap</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="w-11/12 xl:w-1/3 lg:w-1/3 sm:w-1/6 sm:w-11/12 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0 mt-8 lg:mt-8 xl:mt-0">
                         <div class="flex justify-start sm:justify-start xl:justify-end space-x-6 pr-2 xl:pr-0 lg:pr-0 md:pr-0 sm:pr-0">
+                            <!-- TODO: change socila links -->
                             <div>
                                 <a href="#">
                                     <svg aria-label="Twitter" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
