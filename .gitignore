@@ -1,0 +1,14 @@
+# Dependency directories
+/node_modules
+
+# Optional npm cache directory
+.npm
+
+# misc
+.DS_store
+
+# vercel
+.vercel
+
+# local env files
+.env*.local
