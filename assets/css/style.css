@@ -7,10 +7,10 @@ body {
   margin: 0;
 }
 .custom-foreground-color {
-  color: #f56565;
+  color: #A41821;
 }
 .custom-border-bottom {
-  border-bottom: 2px solid #f56565;
+  border-bottom: 2px solid #A41821;
 }
 @font-face {
   font-family: "Sf-ui-pro";
