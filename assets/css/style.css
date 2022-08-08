@@ -6,8 +6,11 @@ body {
   padding: 0;
   margin: 0;
 }
-.custom-foreground-color {
+.highlight-color {
   color: #A41821;
+}
+.hero-color {
+  color: #4A0313;
 }
 .custom-border-bottom {
   border-bottom: 2px solid #A41821;
