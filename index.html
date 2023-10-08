@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Liza George</title>
-        <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap" rel="stylesheet" />
-        <link href="./assets/css/style.css" rel="stylesheet" />
-        <link rel="icon" href="./assets/images/lg_logo_light.png">
-        <!-- TODO: search engine optimizations -->
-        <!-- TODO:make new image on figma -->
-    </head>
-    <body>
-        <!-- Header starts here -->
-        <div class="bg-white py-4 md:py-10 md:px-20">
-            <header class="mx-auto container px-4 xl:px-0">
-                <div class="flex items-center justify-between">
-                    <a href="javascript: void(0)"> 
-                        <img loading="lazy" class="w-24" src="./assets/images/lg_logo_light.png"/> 
-                        <!-- TODO:make new image on figma -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liza George</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link rel="icon" href="./assets/images/lg_logo_light.png">
+    <!-- TODO: search engine optimizations -->
+    <!-- TODO:make new image on figma -->
+</head>
+
+<body>
+    <!-- Header starts here -->
+    <div class="bg-white py-4 md:py-10 md:px-20">
+        <header class="mx-auto container px-4 xl:px-0">
+            <div class="flex items-center justify-between">
+                <a href="javascript: void(0)">
+                    <img loading="lazy" class="w-24" src="./assets/images/lg_logo_light.png" />
+                    <!-- TODO:make new image on figma -->
                     <!-- <div> -->
-                        <!-- TODO: this click doesn't work -->
-                        <!-- <div onclick="toggleMenu(true)" class="sm:block md:hidden lg:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
+                    <!-- TODO: this click doesn't work -->
+                    <!-- <div onclick="toggleMenu(true)" class="sm:block md:hidden lg:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 focus:outline-none">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="4" y1="6" x2="20" y2="6" />
@@ -29,7 +32,7 @@
                                 <line x1="4" y1="18" x2="20" y2="18" />
                             </svg>
                         </div> -->
-                        <!-- <div id="menu" class="md:block lg:block hidden">
+                    <!-- <div id="menu" class="md:block lg:block hidden">
                             <div onclick="toggleMenu(false)" class="block md:hidden lg:hidden text-gray-500 hover:text-gray-700 focus:text-gray-700 fixed focus:outline-none z-30 top-0 pt-4">
                                 <svg aria-haspopup="true" aria-label="Main Menu" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" />
@@ -40,8 +43,8 @@
                             <ul class="flex md:flex text-3xl md:text-base lg:text-base lg:flex flex-col md:flex-row lg:flex-row justify-center items-center fixed md:relative lg:relative top-0 bottom-0 left-0 right-0 bg-white z-20">
                                 <li class="md:mr-8 lg:mr-10 flex items-center">
                                     <a class="text-gray-800 hover:text-gray-600 pt-10 md:pt-0" href="javascript: void(0)">About</a> -->
-                                    <!-- TODO: link these header tabs  -->
-                                <!-- </li>
+                    <!-- TODO: link these header tabs  -->
+                    <!-- </li>
                                 <li class="md:mr-8 lg:mr-10 flex items-center">
                                     <a class="text-gray-800 hover:text-gray-600 pt-10 md:pt-0" href="javascript: void(0)">Portfolio</a>
                                 </li>
@@ -55,100 +58,135 @@
                                 <li class="md:mr-0 flex items-center">
                                     <a class="text-gray-800 hover:text-gray-600 pt-10 md:pt-0" href="javascript: void(0)">Contact</a>
                                 </li> -->
-                                <!-- TODO: add download resume button -->
-                            <!-- </ul> -->
-                        <!-- </div> -->
+                    <!-- TODO: add download resume button -->
+                    <!-- TODO: add email button mailto:hi.liza.george@gmail.com-->
+                    <!-- </ul> -->
                     <!-- </div> -->
+                    <!-- </div> -->
+            </div>
+        </header>
+        <section class="mt-8 sm:mt-24 lg:mt-20 mx-auto container py-12 lg:px-4 xl:px-0 mx-auto container ">
+            <div class="flex flex-col sm:flex-col md:flex-row lg:flex-row">
+                <div class="flex flex-col lg:w-6/12 md:w-6/12 px-4 lg:px-0 justify-center items-start">
+                    <p class="text-2xl text-gray-800 font-light">Hi! My name is</p>
+                    <h1
+                        class="text-5xl sm:text-6xl md:text-4xl lg:text-6xl font-extrabold leading-tight hero-color pb-3 pt-1">
+                        Liza George.</h1>
+                    <p class="text-lg text-gray-600 font-light leading-relaxed pt-2">I am a computer science student at
+                        the University of Illinois, Urbana Champaign and former Uber SWE Intern. I love pushing myself
+                        in my studies and work, and get excited at any opportunity to learn something new.</p>
+                    <p class="text-lg text-gray-600 font-light leading-relaxed pt-2">Welcome to my dev portfolio
+                        website! Scroll around to see a bit of my latest work and experiences. And if you want to get in
+                        touch…</p>
+                    <a href="https://www.linkedin.com/in/george-liza/" target="_blank" rel="noopener noreferrer">
+                        <button
+                            class="Sf-ui-pro mt-8 flex items-center text-xl highlight-color font-regular custom-border-bottom pb-2 mr-3 focus:outline-none">
+                            Connect with me
+                            <!-- TODO: hover action -->
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-arrow-narrow-right" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <line x1="15" y1="16" x2="19" y2="12" />
+                                <line x1="15" y1="8" x2="19" y2="12" />
+                            </svg>
+                        </button>
+                    </a>
+                    <!-- TODO: add icons to socials  -->
                 </div>
-            </header>
-            <section class="mt-8 sm:mt-24 lg:mt-20 mx-auto container py-12 lg:px-4 xl:px-0 mx-auto container ">
-                <div class="flex flex-col sm:flex-col md:flex-row lg:flex-row">
-                    <div class="flex flex-col lg:w-6/12 md:w-6/12 px-4 lg:px-0 justify-center items-start">
-                        <p class="text-2xl text-gray-800 font-light">Hi! My name is</p>
-                        <h1 class="text-5xl sm:text-6xl md:text-4xl lg:text-6xl font-extrabold leading-tight hero-color pb-3 pt-1">Liza George.</h1>
-                        <p class="text-lg text-gray-600 font-light leading-relaxed pt-2">I am a computer science student at the University of Illinois, Urbana Champaign. I love pushing myself in my studies and work, and get excited at any opportunity to learn something new.</p>
-                        <p class="text-lg text-gray-600 font-light leading-relaxed pt-2">Welcome to my dev portfolio website! Scroll around to see a bit of my latest work and experiences. And if you want to get in touch…</p>
-                        <a href="mailto:hi.liza.george@gmail.com" target="_blank" rel="noopener noreferrer">
-                            <button class="Sf-ui-pro mt-8 flex items-center text-xl highlight-color font-regular custom-border-bottom pb-2 mr-3 focus:outline-none">
-                                Connect with me
-                                <!-- TODO: hover action -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <line x1="5" y1="12" x2="19" y2="12" />
-                                    <line x1="15" y1="16" x2="19" y2="12" />
-                                    <line x1="15" y1="8" x2="19" y2="12" />
-                                </svg>
-                            </button>
-                        </a>
-                        <!-- TODO: add icons to socials  -->
-                    </div>
-                    <!-- TODO: update picture -->
-                    <div class="xl-w-11/12 sm:w-1/2 mt-8 sm:mt-0">
-                        <div class="flex items-center justify-center sm:justify-end w-full">
-                            <img loading="lazy" class="w-3/4 m:w-4/5 pt-4" src="./assets/images/hero.png" alt="header image" />
-                        </div>
+                <!-- TODO: update picture -->
+                <div class="xl-w-11/12 sm:w-1/2 mt-8 sm:mt-0">
+                    <div class="flex items-center justify-center sm:justify-end w-full">
+                        <img loading="lazy" class="w-3/4 m:w-4/5 pt-4" src="./assets/images/hero.png"
+                            alt="header image" />
                     </div>
                 </div>
-            </section>
-        </div>
-        <!-- Header ends here -->
+            </div>
+        </section>
+    </div>
+    <!-- Header ends here -->
 
-        <!-- Navigator starts here -->
-        <!-- TODO: fix -->
-        <!-- <div class="w-full flex justify-center elements-center pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-24 text-gray-800">
+    <!-- Navigator starts here -->
+    <!-- TODO: fix -->
+    <!-- <div class="w-full flex justify-center elements-center pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-24 text-gray-800">
             <svg id="goDown" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer icon icon-tabler icon-tabler-chevrons-down" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <polyline points="7 7 12 12 17 7" />
                 <polyline points="7 13 12 18 17 13" />
             </svg>
         </div>  -->
-        <!-- Navigator ends here -->
+    <!-- Navigator ends here -->
 
-        <!-- Experiences Section -->
-        <section class="px-2 md:px-20">
-            <!-- TODO: lines (highlihgt color) on either side of header? -->
-            <h2 class="text-gray-800 text-3xl sm:text-4xl text-center pb-4 mb-3 leading-normal tracking-normal font-bold">My experiences</h2>
-            <!-- TODO: mobile - include images? maybe just v small (basically logo) image + header and date. -->
-            <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
-                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/uber_logo.png" alt="decorative image" />
-                </div>
-                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
-                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Uber SWE Internship</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal">
-                        <!-- TODO: add dates -->
-                        This was my first ever internship, and I learned a tremendous amount about software engineering! I was part of the Enterprise Billing team in the Money organization, where I first helped the team recover form a Code Yellow and then built an internal API for our operations team to query all U4B invoices. In the process, I learned how to work with Go, in a monorepo managed with Bazel, and then practiced using React to build my project’s interface. I also helped the on-call team and worked on documentation.
-                    </p>
-                </div>
+    <!-- Experiences Section -->
+    <section class="px-2 md:px-20">
+        <!-- TODO: lines (highlihgt color) on either side of header? -->
+        <h2 class="text-gray-800 text-3xl sm:text-4xl text-center pb-4 mb-3 leading-normal tracking-normal font-bold">My
+            experiences</h2>
+        <!-- TODO: mobile - include images? maybe just v small (basically logo) image + header and date. -->
+        <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
+            <div class="w-full sm:w-1/3 relative h- sm:h-auto">
+                <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full"
+                    src="./assets/images/uber_logo.png" alt="decorative image" />
             </div>
-            <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
-                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">UIUC Computer Science Course Assistant</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal">
-                        In Spring 2022, I was a course assistant for Introduction to Computer Science II Honors, which is a student-run course that teaches programming fundamentals in Rust. I helped manage the course, and learned how use the Angular web framework on the job to add features to and maintain the course website. I also mentored three student teams building their semester projects, teaching best design practices and project planning.
-                    </p>
-                </div>
-                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
-                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/uiuc.jpeg" alt="decorative image" />
-                </div>
+            <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
+                <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Uber SWE Internship
+                </h3>
+                <p class="text-gray-600 leading-6 font-normal tracking-normal">
+                    <!-- TODO: add dates -->
+                    This was my first ever internship, and I learned a tremendous amount about software engineering! I
+                    was part of the Enterprise Billing team in the Money organization, where I first helped the team
+                    recover form a Code Yellow and then built an internal API for our operations team to query all U4B
+                    invoices. In the process, I learned how to work with Go, in a monorepo managed with Bazel, and then
+                    practiced using React to build my project’s interface. I also helped the on-call team and worked on
+                    documentation.
+                </p>
             </div>
-            <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
-                <div class="w-full sm:w-1/3 relative h- sm:h-auto">
-                    <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full" src="./assets/images/cssi.png" alt="decorative image" />
-                </div>
-                <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
-                    <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Google CSSI Scholar</h3>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal">
-                        Google's Computer Science Summer Institute (CSSI) Program was a selective 4-week bootcamp for rising college freshman. During the program, I used the p5.js library to practice my knowledge of Javascript, learned from Google's volunteer instructors and engineers, and attended workshops to learn how to be a successful teammate and engineer. The program ended with a capstone project that I built and presented with my partner, where I used the p5.js library to replicate the arcade game Centipede.
-                    </p>
-                    <p class="text-gray-600 leading-6 font-normal tracking-normal">
-                        A full explanation of my time in CSSI and my capstone project can be viewed here - <u><a href="https://bit.ly/my-time-in-google-cssi"  target="_blank" rel="noopener noreferrer">https://bit.ly/my-time-in-google-cssi</a></u>.
-                    </p>
-                </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
+            <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
+                <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">UIUC Computer Science
+                    Course Assistant</h3>
+                <p class="text-gray-600 leading-6 font-normal tracking-normal">
+                    In Spring 2022, I was a course assistant for Introduction to Computer Science II Honors, which is a
+                    student-run course that teaches programming fundamentals in Rust. I helped manage the course, and
+                    learned how use the Angular web framework on the job to add features to and maintain the course
+                    website. I also mentored three student teams building their semester projects, teaching best design
+                    practices and project planning.
+                </p>
             </div>
+            <div class="w-full sm:w-1/3 relative h- sm:h-auto">
+                <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full"
+                    src="./assets/images/uiuc.jpeg" alt="decorative image" />
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto">
+            <div class="w-full sm:w-1/3 relative h- sm:h-auto">
+                <img loading="lazy" class="w-full object-cover absolute inset-0 object-center h-full"
+                    src="./assets/images/cssi.png" alt="decorative image" />
+            </div>
+            <div class="container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100">
+                <h3 class="text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold">Google CSSI Scholar
+                </h3>
+                <p class="text-gray-600 leading-6 font-normal tracking-normal">
+                    Google's Computer Science Summer Institute (CSSI) Program was a selective 4-week bootcamp for rising
+                    college freshman. During the program, I used the p5.js library to practice my knowledge of
+                    Javascript, learned from Google's volunteer instructors and engineers, and attended workshops to
+                    learn how to be a successful teammate and engineer. The program ended with a capstone project that I
+                    built and presented with my partner, where I used the p5.js library to replicate the arcade game
+                    Centipede.
+                </p>
+                <p class="text-gray-600 leading-6 font-normal tracking-normal">
+                    A full explanation of my time in CSSI and my capstone project can be viewed here - <u><a
+                            href="https://bit.ly/my-time-in-google-cssi" target="_blank"
+                            rel="noopener noreferrer">https://bit.ly/my-time-in-google-cssi</a></u>.
+                </p>
+            </div>
+        </div>
 
-            <!-- TODO: show fewer experiences on smaller screen and view all experiences should link to a page with all of them -->
-            <!-- <div class="mb-16 sm:mb-32 container mx-auto px-6 container mx-auto">
+        <!-- TODO: show fewer experiences on smaller screen and view all experiences should link to a page with all of them -->
+        <!-- <div class="mb-16 sm:mb-32 container mx-auto px-6 container mx-auto">
                 <button class="Sf-ui-pro  focus:outline-none flex items-center text-xl highlight-color font-regular custom-border-bottom pb-2 mr-3">
                     View all projects
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -159,13 +197,14 @@
                     </svg>
                 </button>
             </div> -->
-        </section>
+    </section>
 
-        <!-- Projects -->
-        <section id="products" class="px-2 md:px-0 bg-gray-800">
-            <div class="container mx-auto py-6 px-6 xl:px-0">
-                <h1 class="Sf-ui-pro text-white w-full xl:w-1/4 font-black text-3xl sm:text-4xl py-6 mb-2 text-center leading-normal tracking-normal font-bold" text-center>My Projects</h1>
-                <!-- <button class="Sf-ui-pro focus:outline-none my-8 flex items-center text-xl text-white font-regular border-b border-white pb-2 mr-3">
+    <!-- Projects -->
+    <section id="products" class="px-2 md:px-0 bg-gray-800">
+        <div class="container mx-auto py-6 px-6 xl:px-0">
+            <h1 class="Sf-ui-pro text-white w-full xl:w-1/4 font-black text-3xl sm:text-4xl py-6 mb-2 text-center leading-normal tracking-normal font-bold"
+                text-center>My Projects</h1>
+            <!-- <button class="Sf-ui-pro focus:outline-none my-8 flex items-center text-xl text-white font-regular border-b border-white pb-2 mr-3">
                     View all projects
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -174,57 +213,71 @@
                         <line x1="15" y1="8" x2="19" y2="12" />
                     </svg>
                 </button> -->
-                <div class="pb-10 xl:pb-0 lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
-                    <div class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
-                        <div class="shadow h-64 rounded z-10">
-                            <img loading="lazy" src="./assets/images/InvoicesPageCensored.png" alt="" class="h-full w-full object-cover overflow-hidden rounded-lg" />
-                        </div>
-                        <div class="px-6 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
-                            <h4 class="px-2 text-gray-800 text-lg text-center mb-2">Uber Intern Project (Invoices Page)</h4>
-                            <p class="text-gray-600 mb-2"> An API and corresponding interface that allows internal operations team to query and sort all B2B invoices. </p>
-                            <ul class="list-disc pl-4 marker:text-blue-500">
-                                <li>Built in Go, using protobuff protocol. </li>
-                                <li>Collaborated with another intern to connect API to his RTA table </li>
-                                <li>Learned how to use React and GraphQL to create Invoices Page interface that queries my API. </li>
-                            </ul>
-                            <!-- TODO: more details link in each -->
-                        </div>
+            <div
+                class="pb-10 xl:pb-0 lg:flex md:flex xl:justify-around sm:flex flex-wrap md:justify-around sm:justify-around lg:justify-around">
+                <div
+                    class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
+                    <div class="shadow h-64 rounded z-10">
+                        <img loading="lazy" src="./assets/images/InvoicesPageCensored.png" alt=""
+                            class="h-full w-full object-cover overflow-hidden rounded-lg" />
                     </div>
-                    <div class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
-                        <div class="shadow h-64 rounded z-10">
-                            <img loading="lazy" src="./assets/images/AssignmentAggregatorSCs.jpg" alt="" class="h-full w-full object-cover overflow-hidden rounded-lg" />
-                        </div>
-                        <div class="px-6 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
-                            <h4 class="px-2 text-gray-800 text-lg text-center mb-2">Assignment Aggregator App</h4>
-                            <p class="text-gray-600 mb-2"> A python script that collates a user student’s assignments from different online systems into their desired organizational tool. </p>
-                            <ul class="list-disc pl-4 marker:text-blue-500">
-                                <li>Group project for my university Software Development Fundamentals course.  </li>
-                                <li>I designed the output CSV format to be compatible with tools like Notion and Todoist </li>
-                                <li>Created the interface used to standardize input data from various sources (Canva, PrairieLearn, Moodle, etc.).   </li>
-                            </ul>
-                        </div>
+                    <div class="px-6 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
+                        <h4 class="px-2 text-gray-800 text-lg text-center mb-2">Uber Intern Project (Invoices Page)</h4>
+                        <p class="text-gray-600 mb-2"> An API and corresponding interface that allows internal
+                            operations team to query and sort all B2B invoices. </p>
+                        <ul class="list-disc pl-4 marker:text-blue-500">
+                            <li>Built in Go, using protobuff protocol. </li>
+                            <li>Collaborated with another intern to connect API to his RTA table </li>
+                            <li>Learned how to use React and GraphQL to create Invoices Page interface that queries my
+                                API. </li>
+                        </ul>
+                        <!-- TODO: more details link in each -->
                     </div>
-                    <div class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
-                        <div class="shadow h-64 rounded z-10">
-                            <img loading="lazy" src="./assets/images/SentimentAnalyzerSCs.jpg" alt="" class="h-full w-full object-cover overflow-hidden rounded-lg" />
-                        </div>
-                        <div class="px-6 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
-                            <h4 class="px-2 text-gray-800 text-lg text-center mb-2"> Sentiment Analysis in Rust  </h4>
-                            <p class="text-gray-600 mb-2"> A tool that can output the overall sentiment (positivity and negativity) of an input text over time.  </p>
-                            <ul class="list-disc pl-4 marker:text-blue-s500">
-                                <li>Created a command-line interface for users to input either a CSV file of text and timestamps, or Twitter username to analyze sentiment of user Tweets over time.  </li>
-                                <li>CEntirely programmed in Rust as part of a university honors course project.  </li>
-                                <li>I implemented the MapReduce multithreading algorithm to improve performance time.  </li>
-                            </ul>
-                        </div>
+                </div>
+                <div
+                    class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
+                    <div class="shadow h-64 rounded z-10">
+                        <img loading="lazy" src="./assets/images/AssignmentAggregatorSCs.jpg" alt=""
+                            class="h-full w-full object-cover overflow-hidden rounded-lg" />
+                    </div>
+                    <div class="px-6 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
+                        <h4 class="px-2 text-gray-800 text-lg text-center mb-2">Assignment Aggregator App</h4>
+                        <p class="text-gray-600 mb-2"> A python script that collates a user student’s assignments from
+                            different online systems into their desired organizational tool. </p>
+                        <ul class="list-disc pl-4 marker:text-blue-500">
+                            <li>Group project for my university Software Development Fundamentals course. </li>
+                            <li>I designed the output CSV format to be compatible with tools like Notion and Todoist
+                            </li>
+                            <li>Created the interface used to standardize input data from various sources (Canva,
+                                PrairieLearn, Moodle, etc.). </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="xl:w-1/3 sm:w-5/12 sm:max-w-xs relative mb-10 lg:mb-20 xl:max-w-sm lg:w-1/2 w-full mx-auto sm:mx-0">
+                    <div class="shadow h-64 rounded z-10">
+                        <img loading="lazy" src="./assets/images/SentimentAnalyzerSCs.jpg" alt=""
+                            class="h-full w-full object-cover overflow-hidden rounded-lg" />
+                    </div>
+                    <div class="px-6 py-3 sm:py-6 shadow-lg w-11/12 mx-auto -mt-20 bg-white rounded z-20 relative">
+                        <h4 class="px-2 text-gray-800 text-lg text-center mb-2"> Sentiment Analysis in Rust </h4>
+                        <p class="text-gray-600 mb-2"> A tool that can output the overall sentiment (positivity and
+                            negativity) of an input text over time. </p>
+                        <ul class="list-disc pl-4 marker:text-blue-s500">
+                            <li>Created a command-line interface for users to input either a CSV file of text and
+                                timestamps, or Twitter username to analyze sentiment of user Tweets over time. </li>
+                            <li>CEntirely programmed in Rust as part of a university honors course project. </li>
+                            <li>I implemented the MapReduce multithreading algorithm to improve performance time. </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- TODO: change logos here <lg> -->
-        <!-- Cloud logo starts here -->
-        <!-- <div class="py-16 px-0 md:px-15 bg-gray-100 flex flex-wrap rounded items-center">
+    <!-- TODO: change logos here <lg> -->
+    <!-- Cloud logo starts here -->
+    <!-- <div class="py-16 px-0 md:px-15 bg-gray-100 flex flex-wrap rounded items-center">
             <div class="w-1/3 sm:w-1/6 flex justify-center items-center">
                 <img loading="lazy" src="https://cdn.tuk.dev/assets/adidas-gray.png" alt="" />
             </div>
@@ -244,11 +297,11 @@
                 <img loading="lazy" src="https://cdn.tuk.dev/assets/blackberry-gray.png" alt="" />
             </div>
         </div> -->
-        <!-- Cloud logo ends here -->
+    <!-- Cloud logo ends here -->
 
-        <!-- TODO: change to series of links and info -->
-        <!-- Cotact section starts here -->
-        <!-- <div class="px-0 md:px-20 xl:px-40 mt-16 sm:mt-32 mb-10 sm:mb-20">
+    <!-- TODO: change to series of links and info -->
+    <!-- Cotact section starts here -->
+    <!-- <div class="px-0 md:px-20 xl:px-40 mt-16 sm:mt-32 mb-10 sm:mb-20">
             <div class="lg:flex">
                 <div class="xl:w-2/5 lg:w-2/5 bg-gray-800 py-10 xl:rounded-bl rounded-tl rounded-tr xl:rounded-tr-none">
                     <div class="xl:w-5/6 xl:px-0 px-8 mx-auto">
@@ -320,13 +373,13 @@
                 </div>
             </div>
         </div> -->
-        <!-- Cotact section ends here -->
+    <!-- Cotact section ends here -->
 
-        <!-- Footer section starts here -->
-        <div class="w-full px-6 lg:px-20 xl:px-40">
-            <div class="container mx-auto py-12">
-                <div class="xl:flex flex-wrap justify-between">
-                    <!-- <div class="w-11/12 xl:w-1/3 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0">
+    <!-- Footer section starts here -->
+    <div class="w-full px-6 lg:px-20 xl:px-40">
+        <div class="container mx-auto py-12">
+            <div class="xl:flex flex-wrap justify-between">
+                <!-- <div class="w-11/12 xl:w-1/3 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0">
                         <ul class="xl:flex lg:flex md:flex sm:flex justify-between">
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Terms of service</a></li>
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Privacy Policy</a></li>
@@ -334,8 +387,8 @@
                             <li class="text-gray-800 hover:text-gray-900 text-base mb-4 sm:mb-0"><a href="#">Sitemap</a></li>
                         </ul>
                     </div> -->
-                    <!-- TODO: change socila links -->
-                    <!-- <div class="w-11/12 xl:w-1/3 lg:w-1/3 sm:w-1/6 sm:w-11/12 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0 mt-8 lg:mt-8 xl:mt-0">
+                <!-- TODO: change socila links -->
+                <!-- <div class="w-11/12 xl:w-1/3 lg:w-1/3 sm:w-1/6 sm:w-11/12 mx-auto lg:mx-0 xl:mx-0 mb-6 lg:mb-0 xl:mb-0 mt-8 lg:mt-8 xl:mt-0">
                         <div class="flex justify-start sm:justify-start xl:justify-end space-x-6 pr-2 xl:pr-0 lg:pr-0 md:pr-0 sm:pr-0">
                             <div>
                                 <a href="#">
@@ -373,11 +426,12 @@
                             </div>
                         </div>
                     </div> -->
-                </div>
             </div>
         </div>
-        <!-- Footer section ends here -->
-        
-        <script src="./assets/scripts/script.js"></script>
-    </body>
+    </div>
+    <!-- Footer section ends here -->
+
+    <script src="./assets/scripts/script.js"></script>
+</body>
+
 </html>
