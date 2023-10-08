@@ -54,17 +54,14 @@ fetch("assets/content.json")
     return response.json(); // Parse the response as JSON
   })
   .then((jsonData) => {
-    console.log(jsonData);
-
     const experiencesContent = jsonData.experiences;
-    experiencesContent.forEach((c, _) => {
+    experiencesContent.forEach((c, index) => {
       const exp = document.createElement("div");
       exp.className =
         "flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto";
 
       const exp_img_container = document.createElement("div");
       exp_img_container.className = "w-full sm:w-1/3 relative h- sm:h-auto";
-      exp.appendChild(exp_img_container);
 
       const exp_img = document.createElement("img");
       exp_img.className =
@@ -74,35 +71,42 @@ fetch("assets/content.json")
       exp_img.setAttribute("loading", "lazy");
       exp_img_container.appendChild(exp_img);
 
-      const exp_right_container = document.createElement("div");
-      exp_right_container.className =
+      const exp_text_container = document.createElement("div");
+      exp_text_container.className =
         "container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100";
-      exp.appendChild(exp_right_container);
 
       const exp_header = document.createElement("h3");
       exp_header.className =
         "text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold";
       exp_header.innerHTML = `${c.name}`;
-      exp_right_container.appendChild(exp_header);
+      exp_text_container.appendChild(exp_header);
 
       // TODO: move this to be inline with header
       const exp_dates = document.createElement("p");
       exp_dates.className =
         "text-gray-600 mb-3 leading-normal tracking-normal italic";
       exp_dates.innerHTML = `${c.dates}`;
-      exp_right_container.appendChild(exp_dates);
+      exp_text_container.appendChild(exp_dates);
 
       const exp_p = document.createElement("p");
       exp_p.className = "text-gray-600 leading-6 font-normal tracking-normal";
       exp_p.innerHTML = `${c.description}`;
-      exp_right_container.appendChild(exp_p);
+      exp_text_container.appendChild(exp_p);
+
+      // Append text and image, but alternate side that image is on
+      if (index % 2 === 0) {
+        exp.appendChild(exp_img_container);
+        exp.appendChild(exp_text_container);
+      } else {
+        exp.appendChild(exp_text_container);
+        exp.appendChild(exp_img_container);
+      }
 
       // Append the div element to the container
       experiencesContainer.appendChild(exp);
     });
     // TODO: add a "more" button
     // TODO: add ability to link stuff
-    // TODO: alternate side that image is on
   })
   .catch((error) => {
     console.error("There was a problem fetching the JSON data:", error);
