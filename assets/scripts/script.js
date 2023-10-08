@@ -102,6 +102,7 @@ fetch("assets/content.json")
     });
     // TODO: add a "more" button
     // TODO: add ability to link stuff
+    // TODO: alternate side that image is on
   })
   .catch((error) => {
     console.error("There was a problem fetching the JSON data:", error);
