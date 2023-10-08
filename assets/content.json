@@ -1,18 +1,32 @@
 {
     "experiences": [
         {
+            "name": "Microsoft SWE Internship",
+            "description": "I worked with the Advanced Autonomy and Applied Robotics team in the Strategic Missions and Technology division. The team focused on exploring robotics applications and creating proof-of-concept projects for Microsoft’s government mission users. For my project, I developed a robot teleoperation app on the Microsoft Teams Plugin platform. I utilized WebRTC and the Azure Communication Services SDK to relay controls and camera feeds over satellite networks. Additionally, I designed and built a multi-user, multi-robot experience. This project was a collaborative effort with another intern - we created the project codebase from scratch, made design decisions, and set our own project timeline. During this internship, I gained knowledge in networking, ROS2, and C#/.NET. In my final review, I received positive feedback for consistently maintaining high code quality and demonstrating independence.",
+            "dates": "Summer 2023",
+            "photo_src": "./assets/images/msoft.jpg",
+            "photo_alt": "Microsoft Logo"
+        },
+        {
+            "name": "Research Intern for UIUC's Professor Kaiyu Guan",
+            "description": "I am a part of the lab of Professor Kaiyu Guan, who is the Director of the Agroecosystem Sustainability Center and is affiliated with the National Center for Supercomputing Applications. In our research, we utilize satellite data, computational models, and machine learning techniques to develop more productive and sustainable crop practices. Last spring, I developed an online portal for farmers, enabling them to access their own crop data and analyze soil moisture data over time. To create this portal, I used Next.JS, Google APIs for integrated maps and plots, and hosted the data on MongoDB. This semester, I am collaborating with Assistant Professor Bin Peng, two Colombian social scientists, and the NASA LCLUC project to map rural croplands in Colombia.",
+            "dates": "January 2023 - Present",
+            "photo_src": "./assets/images/ncsa.jpg",
+            "photo_alt": "UIUC's National Center for Supercomputing Applications building"
+        },
+        {
+            "name": "UIUC Computer Science Lead Course Assistant",
+            "description": "I help plan and administer the course, create and present lectures, and teach during office hours. I also lead the rest of the CA team, which includes facilitating all-staff meetings and making hiring decisions. Since Fall 2022, I’ve been a mentor for CS222 (Software Development Fundamentals), where I manage student teams working on semester-long projects, teaching them project planning and best practices in software development. In January 2023 I was promoted to Lead CA in that course. Additionally, in Spring 2022, I was a CA for CS128H (Introduction to Computer Science II Honors), where I used the Angular framework to maintain and add features to the course website and taught student teams Rust.",
+            "dates": "January 2022 - Present",
+            "photo_src": "./assets/images/uiuc.jpeg",
+            "photo_alt": "UIUC Foellinger Hall"
+        },
+        {
             "name": "Uber SWE Internship",
             "description": "This was my first ever internship, and I learned a tremendous amount about software engineering! I was part of the Enterprise Billing team in the Money organization, where I first helped the team recover form a Code Yellow and then built an internal API for our operations team to query all U4B invoices. In the process, I learned how to work with Go, in a monorepo managed with Bazel, and then practiced using React to build my project’s interface. I also helped the on-call team and worked on documentation.",
             "dates": "Summer 2022",
             "photo_src": "./assets/images/uber_logo.png",
             "photo_alt": "Uber Logo"
-        },
-        {
-            "name": "UIUC Computer Science                     Course Assistant",
-            "description": "In Spring 2022, I was a course assistant for Introduction to Computer Science II Honors, which is a student-run course that teaches programming fundamentals in Rust. I helped manage the course, and learned how use the Angular web framework on the job to add features to and maintain the course website. I also mentored three student teams building their semester projects, teaching best design practices and project planning.",
-            "dates": "Spring 2022 - Present",
-            "photo_src": "./assets/images/uiuc.jpeg",
-            "photo_alt": "UIUC Foellinger Hall"
         },
         {
             "name": "Google CSSI Scholar",

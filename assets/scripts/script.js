@@ -105,8 +105,9 @@ fetch("assets/content.json")
       // Append the div element to the container
       experiencesContainer.appendChild(exp);
     });
-    // TODO: add a "more" button
-    // TODO: add ability to link stuff
+    // TODO: add a "more experiences" button
+    // TODO: add ability to link stuff and have line breaks
+    // TODO: read more within each experience?
   })
   .catch((error) => {
     console.error("There was a problem fetching the JSON data:", error);
