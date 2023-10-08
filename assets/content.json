@@ -1,0 +1,25 @@
+{
+    "experiences": [
+        {
+            "name": "Uber SWE Internship",
+            "description": "This was my first ever internship, and I learned a tremendous amount about software engineering! I was part of the Enterprise Billing team in the Money organization, where I first helped the team recover form a Code Yellow and then built an internal API for our operations team to query all U4B invoices. In the process, I learned how to work with Go, in a monorepo managed with Bazel, and then practiced using React to build my project’s interface. I also helped the on-call team and worked on documentation.",
+            "dates": "Summer 2022",
+            "photo_src": "./assets/images/uber_logo.png",
+            "photo_alt": "Uber Logo"
+        },
+        {
+            "name": "UIUC Computer Science                     Course Assistant",
+            "description": "In Spring 2022, I was a course assistant for Introduction to Computer Science II Honors, which is a student-run course that teaches programming fundamentals in Rust. I helped manage the course, and learned how use the Angular web framework on the job to add features to and maintain the course website. I also mentored three student teams building their semester projects, teaching best design practices and project planning.",
+            "dates": "Spring 2022 - Present",
+            "photo_src": "./assets/images/uiuc.jpeg",
+            "photo_alt": "UIUC Foellinger Hall"
+        },
+        {
+            "name": "Google CSSI Scholar",
+            "description": "Google's Computer Science Summer Institute (CSSI) Program was a selective 4-week bootcamp for rising college freshman. During the program, I used the p5.js library to practice my knowledge of Javascript, learned from Google's volunteer instructors and engineers, and attended workshops to learn how to be a successful teammate and engineer. The program ended with a capstone project that I built and presented with my partner, where I used the p5.js library to replicate the arcade game Centipede.",
+            "dates": "Summer 2021",
+            "photo_src": "./assets/images/cssi.png",
+            "photo_alt": "Google CSSI Class of 2021 Badge"
+        }
+    ]
+}
