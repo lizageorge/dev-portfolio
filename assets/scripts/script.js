@@ -1,114 +1,162 @@
-// //Hamburger and mobile menu
-// function toggleMenu(flag) {
-//   let value = document.getElementById("menu");
-//   if (flag) {
-//     value.classList.remove("hidden");
-//   } else {
-//     value.classList.add("hidden");
-//   }
-// }
-// function animate(elem, style, unit, from, to, time, prop) {
-//   if (!elem) {
-//     return;
-//   }
-//   var start = new Date().getTime(),
-//     timer = setInterval(function () {
-//       var step = Math.min(1, (new Date().getTime() - start) / time);
-//       if (prop) {
-//         elem[style] = from + step * (to - from) + unit;
-//       } else {
-//         elem.style[style] = from + step * (to - from) + unit;
-//       }
-//       if (step === 1) {
-//         clearInterval(timer);
-//       }
-//     }, 25);
-//   if (prop) {
-//     elem[style] = from + unit;
-//   } else {
-//     elem.style[style] = from + unit;
-//   }
-// }
+const root = document.documentElement;
+const navigation = document.querySelector(".navigation");
+const menuToggle = document.querySelector(".menu-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+const mobileViewport = window.matchMedia("(max-width: 900px)");
 
-// document.getElementById("goDown").onclick = function () {
-//   var target = document.getElementById("products");
-//   animate(
-//     document.scrollingElement || document.documentElement,
-//     "scrollTop",
-//     "",
-//     0,
-//     target.offsetTop,
-//     2000,
-//     true
-//   );
-// };
+root.classList.add("enhanced");
+menuToggle.hidden = false;
+themeToggle.hidden = false;
 
-// Loading texts
-const experiencesContainer = document.getElementById("experiencesContainer");
+function closeMenu({ restoreFocus = false } = {}) {
+  navigation.classList.remove("is-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation");
+  if (restoreFocus) menuToggle.focus();
+}
 
-fetch("assets/content.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Couldn't load webpage content"); // TODO: handle properly
-    }
-    return response.json(); // Parse the response as JSON
-  })
-  .then((jsonData) => {
-    const experiencesContent = jsonData.experiences;
-    experiencesContent.forEach((c, index) => {
-      const exp = document.createElement("div");
-      exp.className =
-        "flex flex-col sm:flex-row items-stretch mb-8 sm:mb-16 container mx-auto";
+menuToggle.addEventListener("click", () => {
+  const isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+  navigation.classList.toggle("is-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+});
 
-      const exp_img_container = document.createElement("div");
-      exp_img_container.className = "w-full sm:w-1/3 relative h- sm:h-auto";
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+    closeMenu({ restoreFocus: true });
+  }
+});
 
-      const exp_img = document.createElement("img");
-      exp_img.className =
-        "w-full object-cover absolute inset-0 object-center h-full";
-      exp_img.src = c.photo_src;
-      exp_img.alt = c.photo_alt;
-      exp_img.setAttribute("loading", "lazy");
-      exp_img_container.appendChild(exp_img);
+navigation.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
+  if (!link || !mobileViewport.matches) return;
+  const section = document.querySelector(link.hash);
+  closeMenu();
+  // Keep keyboard focus in the destination rather than in the now-hidden menu.
+  section.setAttribute("tabindex", "-1");
+  section.focus({ preventScroll: true });
+});
 
-      const exp_text_container = document.createElement("div");
-      exp_text_container.className =
-        "container mx-auto w-full sm:w-2/3 py-10 sm:py-16 lg:py-20 px-6 sm:px-12 lg:px-16 bg-gray-100";
+mobileViewport.addEventListener("change", () => closeMenu());
 
-      const exp_header = document.createElement("h3");
-      exp_header.className =
-        "text-gray-800 text-2xl mb-3 leading-normal tracking-normal font-bold";
-      exp_header.innerHTML = `${c.name}`;
-      exp_text_container.appendChild(exp_header);
+function updateThemeControl() {
+  const isDark = root.dataset.theme === "dark"
+    || (!root.dataset.theme && systemTheme.matches);
+  themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} theme`);
+  root.dataset.theme = isDark ? "dark" : "light";
+  document.querySelector('meta[name="theme-color"]').content = getComputedStyle(root).getPropertyValue("--paper").trim();
+}
 
-      // TODO: move this to be inline with header
-      const exp_dates = document.createElement("p");
-      exp_dates.className =
-        "text-gray-600 mb-3 leading-normal tracking-normal italic";
-      exp_dates.innerHTML = `${c.dates}`;
-      exp_text_container.appendChild(exp_dates);
+let hasSavedTheme = false;
+try {
+  hasSavedTheme = ["light", "dark"].includes(localStorage.getItem("portfolio-theme"));
+} catch (error) {
+  console.warn("Theme preferences are unavailable; changes will last for this visit.", error);
+}
 
-      const exp_p = document.createElement("p");
-      exp_p.className = "text-gray-600 leading-6 font-normal tracking-normal";
-      exp_p.innerHTML = `${c.description}`;
-      exp_text_container.appendChild(exp_p);
+updateThemeControl();
+themeToggle.addEventListener("click", () => {
+  root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+  hasSavedTheme = true;
+  updateThemeControl();
+  try {
+    localStorage.setItem("portfolio-theme", root.dataset.theme);
+  } catch (error) {
+    console.warn("Could not save your theme preference; the current theme is still applied.", error);
+  }
+});
 
-      // Append text and image, but alternate side that image is on
-      if (index % 2 === 0) {
-        exp.appendChild(exp_img_container);
-        exp.appendChild(exp_text_container);
-      } else {
-        exp.appendChild(exp_text_container);
-        exp.appendChild(exp_img_container);
-      }
+systemTheme.addEventListener("change", () => {
+  if (hasSavedTheme) return;
+  delete root.dataset.theme;
+  updateThemeControl();
+});
 
-      // Append the div element to the container
-      experiencesContainer.appendChild(exp);
-    });
-    // TODO: add a "more experiences" button
-    // TODO: add ability to link stuff and have line breaks
-    // TODO: read more within each experience?
-  })
-  .catch((error) => {
-    console.error("There was a problem fetching the JSON data:", error);
+const stories = [...document.querySelectorAll(".experience-story")];
+const expandStories = document.querySelector(".expand-stories");
+expandStories.hidden = false;
+
+function updateExpandControl() {
+  const allOpen = stories.every((story) => story.open);
+  expandStories.setAttribute("aria-pressed", String(allOpen));
+  expandStories.replaceChildren(
+    document.createTextNode(allOpen ? "Collapse all " : "Expand all "),
+    Object.assign(document.createElement("span"), {
+      textContent: allOpen ? "−" : "+",
+    }),
+  );
+  expandStories.lastElementChild.setAttribute("aria-hidden", "true");
+}
+
+expandStories.addEventListener("click", () => {
+  const shouldOpen = !stories.every((story) => story.open);
+  stories.forEach((story) => { story.open = shouldOpen; });
+  updateExpandControl();
+});
+stories.forEach((story) => story.addEventListener("toggle", updateExpandControl));
+
+const filters = document.querySelector(".project-filters");
+const projects = [...document.querySelectorAll(".project-card")];
+const projectStatus = document.querySelector(".project-status");
+filters.hidden = false;
+filters.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-filter]");
+  if (!button) return;
+  const category = button.dataset.filter;
+  let visibleCount = 0;
+  projects.forEach((project) => {
+    project.hidden = category !== "all" && project.dataset.category !== category;
+    if (!project.hidden) visibleCount += 1;
   });
+  filters.querySelectorAll("button").forEach((filter) => {
+    filter.setAttribute("aria-pressed", String(filter === button));
+  });
+  projectStatus.textContent = `Showing ${visibleCount} of ${projects.length} projects.`;
+});
+
+const navigationLinks = [...navigation.querySelectorAll("a")];
+const sections = navigationLinks.map((link) => document.querySelector(link.hash));
+const progress = document.querySelector(".reading-progress");
+let scrollFrame = null;
+
+function updateScrollState() {
+  scrollFrame = null;
+  const maxScroll = root.scrollHeight - window.innerHeight;
+  const fraction = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+  progress.style.transform = `scaleX(${fraction})`;
+  let currentSection = null;
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= 160) currentSection = section.id;
+  }
+  if (maxScroll > 0 && window.scrollY >= maxScroll - 2) {
+    currentSection = sections.at(-1).id;
+  }
+  navigationLinks.forEach((link) => {
+    if (link.hash === `#${currentSection}`) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function scheduleScrollUpdate() {
+  if (scrollFrame === null) scrollFrame = requestAnimationFrame(updateScrollState);
+}
+window.addEventListener("scroll", scheduleScrollUpdate, { passive: true });
+window.addEventListener("resize", scheduleScrollUpdate, { passive: true });
+window.addEventListener("load", scheduleScrollUpdate);
+updateScrollState();
+
+// Browsers that don't print closed details still need the complete story.
+let closedBeforePrinting = [];
+window.addEventListener("beforeprint", () => {
+  closedBeforePrinting = [...document.querySelectorAll("details:not([open])")];
+  closedBeforePrinting.forEach((details) => { details.open = true; });
+});
+window.addEventListener("afterprint", () => {
+  closedBeforePrinting.forEach((details) => { details.open = false; });
+  closedBeforePrinting = [];
+});
