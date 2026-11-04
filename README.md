@@ -27,6 +27,12 @@ not the repository's private configuration or development files.
 - `assets/scripts/` adds persistent theme selection, a keyboard-accessible mobile
   menu, active navigation, reading progress, expandable stories, and project
   filters. A system theme is used until a preference is explicitly selected.
+- On phones, a labeled Menu opens a single-column section list. A compact
+  portrait, smaller serif headings, a shorter role preview, and collapsed
+  project title rows reduce scrolling without deleting content. Tapping a
+  project reveals its image, full description, and links. Desktop keeps the
+  full role/project descriptions, as do no-JavaScript and printed versions.
+  Education coursework stays visible. Project filters are omitted on phones.
 - `assets/images/liza-george-*.webp` contains optimized sizes of the new portrait.
   The project images are WebP versions of the existing screenshots.
 - `assets/fonts/` contains official Adobe Source Sans 3 and Source Serif 4 webfonts.

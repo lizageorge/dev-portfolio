@@ -5,6 +5,12 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
+async function expandMobileProjects(page) {
+  for (const button of await page.locator(".project-toggle:visible").all()) {
+    if (await button.getAttribute("aria-expanded") === "false") await button.click();
+  }
+}
+
 test("leads with the role and one prominent LinkedIn action", async ({ page }) => {
   const hero = page.locator(".hero");
   await expect(hero.getByRole("heading", { level: 1 })).toHaveText("Member of Technical Staff at Microsoft Robotics");
@@ -32,7 +38,9 @@ test("uses plain numbered section headings and only a back-to-top footer", async
   const sectionHeading = page.locator("main h2").first();
   await expect(sectionHeading).toHaveCSS("font-family", /Source Serif/);
   await expect(sectionHeading).toHaveCSS("font-style", "normal");
-  expect(await sectionHeading.evaluate((heading) => parseFloat(getComputedStyle(heading).fontSize))).toBeGreaterThanOrEqual(36);
+  const sectionSize = await sectionHeading.evaluate((heading) => parseFloat(getComputedStyle(heading).fontSize));
+  expect(sectionSize).toBeGreaterThanOrEqual(page.viewportSize().width <= 760 ? 28 : 36);
+  if (page.viewportSize().width <= 760) expect(sectionSize).toBeLessThanOrEqual(30);
   await expect(page.locator("#projects .section-heading > p")).toHaveText(
     "A few things I’ve built and can share, from hackathons and coursework to my first internship.",
   );
@@ -78,6 +86,7 @@ test("loads local assets without browser or network errors", async ({ page }) =>
   await page.reload();
   await page.evaluate(() => document.fonts.ready);
   await page.getByRole("button", { name: "Expand all", exact: false }).click();
+  await expandMobileProjects(page);
   for (const image of await page.locator("img").all()) {
     await image.scrollIntoViewIfNeeded();
     await expect.poll(() => image.evaluate((element) => element.complete && element.naturalWidth > 0)).toBe(true);
@@ -143,6 +152,11 @@ test("experience stories and project filters are usable", async ({ page }) => {
   await firstStory.locator("summary").focus();
   await page.keyboard.press("Enter");
   await expect(firstStory).toHaveAttribute("open", "");
+  if (page.viewportSize().width <= 760) {
+    await expect(page.locator(".project-filters")).toBeHidden();
+    await expect(page.locator(".project-card:visible")).toHaveCount(4);
+    return;
+  }
   const webFilter = page.getByRole("button", { name: "Web applications", exact: true });
   await webFilter.click();
   await expect(page.locator(".project-card:visible")).toHaveCount(2);
@@ -198,17 +212,25 @@ test("has no horizontal overflow at narrow, tablet, or desktop widths", async ({
   for (const width of [320, 375, 600, 768, 900, 1024, 1440, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `Overflow at ${width}px`).toBe(true);
+    if (await page.locator(".menu-toggle").isVisible()) {
+      await page.locator(".menu-toggle").click();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `Open menu overflow at ${width}px`).toBe(true);
+      await page.keyboard.press("Escape");
+    }
   }
 });
 
 test("light and dark themes meet automated accessibility checks", async ({ page }) => {
   await page.getByRole("button", { name: "Expand all", exact: false }).click();
-  for (const colorScheme of ["light", "dark"]) {
-    await page.evaluate((theme) => { document.documentElement.dataset.theme = theme; }, colorScheme);
-    const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
-      .analyze();
-    expect(results.violations).toEqual([]);
+  for (const expanded of page.viewportSize().width <= 760 ? [false, true] : [true]) {
+    if (expanded) await expandMobileProjects(page);
+    for (const colorScheme of ["light", "dark"]) {
+      await page.evaluate((theme) => { document.documentElement.dataset.theme = theme; }, colorScheme);
+      const results = await new AxeBuilder({ page })
+        .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+        .analyze();
+      expect(results.violations).toEqual([]);
+    }
   }
 });
 
@@ -224,6 +246,12 @@ test("remains readable and navigable without JavaScript", async ({ browser, base
     await expect(page.getByRole("navigation")).toBeVisible();
     await expect(page.getByRole("heading", { name: "Member of Technical Staff", exact: true })).toBeVisible();
     await expect(page.locator(".project-card:visible")).toHaveCount(4);
+    await expect(page.locator("[data-mobile-detail][hidden]")).toHaveCount(0);
+    await expect(page.locator(".mobile-read-more:visible")).toHaveCount(0);
+    await expect(page.locator("#role-security")).toBeVisible();
+    await expect(page.getByText("Entirely programmed in Rust", { exact: false })).toBeVisible();
+    await expect(page.locator(".project-toggle-heading:visible")).toHaveCount(0);
+    await expect(page.locator(".education-coursework")).toBeVisible();
     await expect(page.locator("body")).toHaveCSS("background-color", colorScheme === "light" ? "rgb(248, 246, 240)" : "rgb(27, 16, 18)");
     await page.locator(".experience-story").first().locator("summary").click();
     await expect(page.getByText("I helped plan and administer courses", { exact: false })).toBeVisible();
@@ -256,6 +284,145 @@ test("honors reduced motion and includes full text when printing", async ({ page
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe("auto");
   await page.evaluate(() => window.dispatchEvent(new Event("beforeprint")));
   await expect(page.locator("details:not([open])")).toHaveCount(0);
+  await expect(page.locator("[data-mobile-detail][hidden]")).toHaveCount(0);
+  await expect(page.locator(".project-toggle-heading:visible")).toHaveCount(0);
+  await page.emulateMedia({ media: "print" });
+  await expect(page.locator(".project-copy h3:visible")).toHaveCount(4);
+  await page.emulateMedia({ media: "screen" });
   await page.evaluate(() => window.dispatchEvent(new Event("afterprint")));
   await expect(page.locator(".experience-story[open]")).toHaveCount(0);
+  await expect(page.locator("[data-mobile-detail][hidden]")).toHaveCount(page.viewportSize().width <= 760 ? 11 : 0);
+});
+
+test("long copy is optional on phones and fully visible on desktop", async ({ page }) => {
+  const groups = page.locator("[data-mobile-disclosure]");
+  await expect(groups).toHaveCount(5);
+  if (page.viewportSize().width > 760) {
+    await expect(page.locator("[data-mobile-detail][hidden]")).toHaveCount(0);
+    await expect(page.locator(".mobile-read-more:visible")).toHaveCount(0);
+    await expect(page.locator(".project-toggle:visible")).toHaveCount(0);
+    return;
+  }
+  await expect(page.locator("[data-mobile-detail][hidden]")).toHaveCount(11);
+  for (const group of await groups.all()) {
+    const button = group.locator("[data-mobile-toggle]");
+    await expect(button).toHaveAttribute("aria-expanded", "false");
+    const controlledIds = (await button.getAttribute("aria-controls")).split(" ");
+    for (const id of controlledIds) await expect(page.locator(`#${id}`)).toBeHidden();
+    await button.click();
+    await expect(button).toHaveAttribute("aria-expanded", "true");
+    for (const id of controlledIds) await expect(page.locator(`#${id}`)).toBeVisible();
+    if (await button.evaluate((element) => element.classList.contains("mobile-read-more"))) {
+      await expect(button).toHaveText("Show less");
+    }
+    await button.click();
+    for (const id of controlledIds) await expect(page.locator(`#${id}`)).toBeHidden();
+  }
+  await expect(page.locator(".education-coursework")).toBeVisible();
+  await expect(page.locator(".education-coursework")).toContainText("ML Compilers");
+});
+
+test("phone projects start as title rows and expand only on activation", async ({ page }) => {
+  test.skip(page.viewportSize().width > 760, "Phone-specific project checks");
+  const cards = page.locator(".project-card");
+  await expect(page.locator('.project-toggle[aria-expanded="false"]:visible')).toHaveCount(4);
+  await expect(page.locator(".project-visual:visible, .project-copy:visible")).toHaveCount(0);
+  for (const card of await cards.all()) {
+    const toggle = card.getByRole("button");
+    await expect(toggle).toHaveAccessibleName(/Ligo|Sentiment Analyzer|Assignment Aggregator|Uber Invoice Explorer/);
+    expect((await toggle.boundingBox()).height).toBeGreaterThanOrEqual(44);
+    await toggle.focus();
+    await page.keyboard.press("Enter");
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(card.locator(".project-visual")).toBeVisible();
+    await expect(card.locator(".project-copy")).toBeVisible();
+    await expect(card.getByRole("heading", { level: 3 })).toHaveCount(1);
+    await expect(card.locator(".project-copy p").first()).toBeVisible();
+    for (const link of await card.locator(".project-copy a").all()) await expect(link).toBeVisible();
+    await toggle.click();
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+    await expect(card.locator(".project-copy")).toBeHidden();
+  }
+  await page.reload();
+  await expect(page.locator('.project-toggle[aria-expanded="false"]:visible')).toHaveCount(4);
+});
+
+test("phone layout is compact, readable, and uses touch-sized controls", async ({ page }) => {
+  test.skip(page.viewportSize().width > 760, "Phone-specific layout checks");
+  await page.evaluate(() => document.fonts.ready);
+  for (const width of [320, 375, 390, 430, 760]) {
+    await page.setViewportSize({ width, height: 844 });
+    const measurements = await page.evaluate(() => ({
+      heroHeight: document.querySelector(".hero").getBoundingClientRect().height,
+      visibleCharacters: document.body.innerText.length,
+      h1Size: parseFloat(getComputedStyle(document.querySelector("h1")).fontSize),
+      h2Size: parseFloat(getComputedStyle(document.querySelector("h2")).fontSize),
+      overflow: document.documentElement.scrollWidth > innerWidth,
+    }));
+    expect(measurements.heroHeight, `${width}px hero`).toBeLessThan(350);
+    expect(measurements.visibleCharacters, `${width}px visible text`).toBeLessThan(4500);
+    expect(measurements.h1Size).toBeLessThanOrEqual(40);
+    expect(measurements.h2Size).toBeLessThanOrEqual(30);
+    expect(measurements.overflow).toBe(false);
+    for (const selector of [".menu-toggle", ".theme-toggle", ".resume-link", ".hero-actions .button", ".current-role .mobile-read-more"]) {
+      const box = await page.locator(selector).boundingBox();
+      expect(box.height, `${width}px touch target ${selector}`).toBeGreaterThanOrEqual(44);
+    }
+  }
+});
+
+test("phone menu is labeled, single-column, dismissible, and does not shift content", async ({ page }) => {
+  test.skip(page.viewportSize().width > 760, "Phone-specific menu checks");
+  const menu = page.locator(".menu-toggle");
+  await expect(menu.locator(".menu-label")).toHaveText("Menu");
+  const heroTop = await page.locator(".hero").evaluate((hero) => hero.getBoundingClientRect().top);
+  await menu.click();
+  await expect(menu.locator(".menu-label")).toHaveText("Close");
+  await expect(page.locator(".navigation a").first()).toBeFocused();
+  expect(await page.locator(".hero").evaluate((hero) => hero.getBoundingClientRect().top)).toBe(heroTop);
+  const links = await page.locator(".navigation a").all();
+  const boxes = await Promise.all(links.map((link) => link.boundingBox()));
+  for (const box of boxes) {
+    expect(box.height).toBeGreaterThanOrEqual(44);
+    expect(box.x).toBe(boxes[0].x);
+  }
+  await page.keyboard.press("Escape");
+  await expect(menu).toBeFocused();
+  await expect(page.locator(".navigation")).toBeHidden();
+  await menu.click();
+  await page.mouse.click(8, 700);
+  await expect(page.locator(".navigation")).toBeHidden();
+  await menu.click();
+  await page.locator(".hero-actions .button").focus();
+  await expect(page.locator(".navigation")).toBeHidden();
+  await menu.click();
+  await page.getByRole("navigation").getByRole("link", { name: "Projects", exact: true }).click();
+  await expect(page.locator("#projects")).toBeFocused();
+  await expect(page.locator(".navigation")).toBeHidden();
+});
+
+test("resizing preserves all content, disclosure choices, and project visibility", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const button = page.locator(".current-role .mobile-read-more");
+  await expect(button).toBeVisible();
+  await button.click();
+  const projectToggle = page.getByRole("button", { name: "Ligo", exact: true });
+  await projectToggle.click();
+  await expect(page.locator("#ligo-copy")).toBeVisible();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await expect(page.locator("[data-mobile-detail][hidden]")).toHaveCount(0);
+  await expect(button).toBeHidden();
+  await expect(page.locator(".project-toggle:visible")).toHaveCount(0);
+  await expect(page.locator(".project-copy:visible")).toHaveCount(4);
+  await page.getByRole("button", { name: "Web applications", exact: true }).click();
+  await expect(page.locator(".project-card:visible")).toHaveCount(2);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator(".project-card:visible")).toHaveCount(4);
+  await expect(page.locator(".project-filters")).toBeHidden();
+  await expect(projectToggle).toHaveAttribute("aria-expanded", "true");
+  await expect(page.locator("#ligo-copy")).toBeVisible();
+  await expect(page.locator("#sentiment-copy")).toBeHidden();
+  await expect(button).toHaveAttribute("aria-expanded", "true");
+  await expect(page.locator("#role-security")).toBeVisible();
+  await expect(page.locator("#role-collaboration")).toBeVisible();
 });
